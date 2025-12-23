@@ -1,6 +1,6 @@
 ---
 title: Binary Bitwise Operators
-description: PSSv2.1/8.5.5 Bitwise operators
+description: PSSv3.0/8.5.5 Bitwise operators
 ---
 
 # Binary Bitwise Operators {#operator_binarybiwise_binary_bitwise_operators}

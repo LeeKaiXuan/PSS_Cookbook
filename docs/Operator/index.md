@@ -1,6 +1,6 @@
 ---
 title: Operators and Expressions
-description: PSSv2.1/8 Operators and expressions
+description: PSSv3.0/8 Operators and expressions
 ---
 
 # Operators and Expressions
@@ -27,6 +27,36 @@ description: PSSv2.1/8 Operators and expressions
 | `[expression]`                                                                            | Index operator                        | Array, list, map                      | Same as element of collection |
 | `[expression]`                                                                            | Bit-select operators                  | Numeric                               | Numeric                       |
 | `[expression:expression]`                                                                 | Part-select operator                  | Numeric                               | Numeric                       |
+
+???+ Tip "Usage: avoid overflow when left-shifting"
+    Shift operators act on the bit-width of the left operand. If the shift amount on the RHS is greater than or equal to that width, the result overflows to `0`, which is usually meaningless.
+
+    ```sv linenums="1"
+    bit [8] byteVal  = 8'h01;
+    bit [8] byteShift = byteVal << 9; //  byteShift: 0 -> 8'h00 (overflowed to zero)
+    ```
+
+    === ":fontawesome-regular-face-smile:{.green} Solution 1"
+        Declare the operand wide enough so the shift amount stays within its bit-width.
+        ```sv linenums="1"
+        bit [16] wideVal   = 16'h0001;
+        bit [16] wideShift = wideVal << 9; //  wideShift: 0 -> 16'h0200 (fits without overflow)
+        ```
+
+    === ":fontawesome-regular-face-smile:{.green} Solution 2"
+        Assign the narrow value into a wider destination before shifting.
+        ```sv linenums="1"
+        bit [8 ] narrowVal = 8'h01;
+        bit [16] dstVal    = narrowVal;   //  extend to 16 bits first
+        dstVal = dstVal << 9;             //  dstVal: 0 -> 16'h0200
+        ```
+
+    === ":fontawesome-regular-face-smile:{.green} Solution 3"
+        Cast the operand to a wider type before applying the shift.
+        ```sv linenums="1"
+        bit [8]  byteVal   = 8'h01;
+        bit [16] castShift = (cast(bit [16]) byteVal) << 9; //  castShift: 0 -> 16'h0200
+        ```
 
 ## Operator precedence and associativity
 | Operator                          | Associativity | Precesence    |

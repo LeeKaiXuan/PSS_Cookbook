@@ -1,6 +1,6 @@
 ---
 title: List
-description: PSSv2.1/7.9.3 Lists
+description: PSSv3.0/7.9.3 Lists
 ---
 
 # List {#list}

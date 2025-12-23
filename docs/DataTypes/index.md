@@ -1,6 +1,6 @@
 ---
 title: Data Types
-description: PSSv2.1/7. Data types
+description: PSSv3.0/7. Data types
 ---
 
 # Data Types

@@ -1,6 +1,6 @@
 ---
 title: Map
-description: PSSv2.1/7.9.4 Maps
+description: PSSv3.0/7.9.4 Maps
 ---
 
 # Map {#map}

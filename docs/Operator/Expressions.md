@@ -1,6 +1,6 @@
 ---
 title: Primary Expressions
-description: PSSv2.1/8.6 Primary expressions
+description: PSSv3.0/8.6 Primary expressions
 ---
 
 # Primary Expressions
@@ -60,7 +60,7 @@ nibbleVal[2] |= nibbleVal[1];   //  nibbleVal: 0b0011 -> 0b0111
 
 ## Part-selects {#primary_expressions_part-selects}
 <span class="mdx-badge">
-<span class="mdx-badge__icon">[:material-tag-remove-outline:{.red}](../index.md#symbol 'PSSGen: Not support yet')</span><span class="mdx-badge__text">Not support yet</span>
+<span class="mdx-badge__icon">[:material-tag-check-outline:{.green}](../index.md#symbol 'PSSGen: Minimum version')</span><span class="mdx-badge__text">v2.4.0</span>
 </span>
 
 Used to select a fixed range of contiguous bits of variable by specified dual-bounds *index*.

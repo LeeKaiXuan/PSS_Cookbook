@@ -1,6 +1,6 @@
 ---
 title: Procedural
-description: PSSv2.1/21.7 Procedural constructs
+description: PSSv3.0/22.7 Procedural constructs
 ---
 
 # Procedural
@@ -156,18 +156,6 @@ else {
     bitVal = 0;
 }
 ```
-
-!!! Bug
-    When `if` statement is used in `constraint` block to constraint random-variable, the `else` statement **SHOULD** be used to prevent incorrect possible values.
-    ```sv linenums="1"
-    rand bit [2] val;
-    constraint {
-        if (true) val in [1, 2];
-        else {} //  (1)!
-    }
-    ```
-
-    1. Even an empty *procedural_stmt_for_false* can prevents incorrect possible values.
 
 ## `match` Statement {#match}
 <span class="mdx-badge"><span class="mdx-badge__icon">[:material-tag-check-outline:{.green}](../index.md#symbol 'PSSGen: Minimum version')</span><span class="mdx-badge__text">v2.2.0</span></span>

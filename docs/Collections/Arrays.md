@@ -1,6 +1,6 @@
 ---
 title: Array
-description: PSSv2.1/7.9.2 Arrays
+description: PSSv3.0/7.9.2 Arrays
 ---
 
 # Array {#array}
